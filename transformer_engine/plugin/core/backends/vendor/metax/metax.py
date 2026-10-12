@@ -150,8 +150,6 @@ def _check_metax_available() -> bool:
             print("[Metax] Disabled: TE_FL_SKIP_METAX=1")
             return False
 
-
-
     try:
         if not _ensure_metax_libs():
             return False
