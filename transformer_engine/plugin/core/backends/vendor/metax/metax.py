@@ -135,20 +135,7 @@ def _import_tex_module():
     return mod
 
 
-def _check_metax_available() -> bool:
-    if not torch.cuda.is_available():
-        return False
 
-    try:
-        from ...._build_config import SKIP_METAX_BUILD
-
-        if SKIP_METAX_BUILD:
-            print("[Metax] Disabled: Metax was skipped at build time")
-            return False
-    except ImportError:
-        if bool(int(os.environ.get("TE_FL_SKIP_METAX", "0"))):
-            print("[Metax] Disabled: TE_FL_SKIP_METAX=1")
-            return False
 
     try:
         if not _ensure_metax_libs():
